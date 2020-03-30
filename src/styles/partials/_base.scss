@@ -5,9 +5,35 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  color: $gray;
+  font-family: $ff-s;
+  line-height: 1.6;
+  background: $white;
+  font-size: 0.875rem; // 16* 0.875 = 14px;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
+}
+
+img {
+  max-width: 100%; // contain img inside container
+}
+
+h1,
+h2,
+p {
+  margin-top: 0;
+  margin-bottom: 1em;
+}
+
+h1 {
+  color: $accent;
+  line-height: 1; // smaller
+  font-size: 3.125rem; // 50px / 16px = 3.125
+}
+
+h2 {
+  @include sans-serif($fz: 2rem);
 }
