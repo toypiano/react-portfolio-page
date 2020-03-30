@@ -1,0 +1,48 @@
+.about-me {
+  @include container;
+  @include clearfix;
+  margin-top: 3em;
+}
+
+.about-img {
+  max-height: 25em;
+
+  @media (min-width: 40em) {
+    float: left;
+    margin-right: 1em;
+  }
+}
+
+.about-title {
+  margin-bottom: 0.25em; // smaller space before subtitle
+}
+
+.about-subtitle {
+  margin: 0.5em 0; // was t0 b1em
+}
+
+@supports (display: grid) {
+  .about-me {
+    display: grid;
+    grid-template-columns:
+      [port-start] minmax(6em, 1fr) [name-start] minmax(6em, 1fr)
+      [img-end] 2fr [port-end];
+  }
+
+  .about-img {
+    grid-column: port / img; // 50%
+    grid-row: 1 / 2; // setting up row to be the same as title's row to make them overlap
+  }
+
+  .about-title {
+    grid-column: name / port;
+    grid-row: 1 / 2;
+    align-self: end; // put title to the bottom
+  }
+
+  .about-subtitle,
+  .about-text {
+    // automatically takes entire columns and different row (when row is not specified)
+    grid-column: port / port;
+  }
+}

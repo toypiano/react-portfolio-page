@@ -1,0 +1,14 @@
+@mixin container($w: 90%, $ma: 50em) {
+  // 700px at 1em = 14px
+  width: $w;
+  max-width: $ma;
+  margin: 0 auto;
+}
+
+@mixin clearfix {
+  &::after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+}
