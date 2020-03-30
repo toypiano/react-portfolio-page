@@ -1,0 +1,52 @@
+.intro {
+  // flex fallback
+  display: flex;
+  color: rgba($white, 0.7);
+
+  @supports (display: grid) {
+    display: grid;
+    // minmax(auto: min-width, auto : max-content)
+    grid-template-columns: minmax(3em, 1fr) minmax(auto, 30em) minmax(3em, 1fr);
+  }
+}
+
+.intro-middle {
+  background: $dark-blue;
+  text-align: center;
+  padding: 2.5em 2vw;
+  h2 {
+    color: $white;
+
+    &::after {
+      content: "";
+      display: block;
+      height: 1px;
+      width: 20%;
+      background: rgba($white, 0.5);
+      margin: 1em auto 0;
+    }
+  }
+  // align text box inside container vertically & horizontally
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* 
+<img> is a replaced element; it has a display value of inline by default, 
+but its default dimensions are defined by the embedded image's intrinsic values, 
+like it were inline-block . 
+*/
+.intro-left img,
+.intro-right img {
+  object-fit: cover;
+  min-height: 100%;
+  min-width: 100%;
+  display: block;
+}
+/* 
+Flexbox stretches images to fit the box nicely, 
+but display: block; creates a little space at the bottom of the images 
+as it tries to fit them in the grid system.
+display: block fixes this problem.
+*/
