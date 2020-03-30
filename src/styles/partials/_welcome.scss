@@ -1,4 +1,41 @@
 .welcome {
   background-image: url("../../images/header-bg.png");
   height: 100vh;
+  background-size: cover;
+  background-position: center;
+  // center title
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  h1 {
+    font-size: 1.5rem; // 24px
+    color: $dark-blue;
+    font-weight: $fw-n;
+    line-height: 2;
+    text-align: center;
+    span {
+      @include sans-serif($fz: 5.5rem, $c: $accent);
+      display: block; // wraps "PORTFOLIO" into new line
+    }
+
+    &::before,
+    &::after {
+      content: "";
+      display: block;
+      width: 60%;
+      height: 1px;
+      background: $dark-blue;
+      margin: 0 auto;
+      opacity: 0.7;
+    }
+
+    &::before {
+      margin-bottom: 2em;
+    }
+
+    &::after {
+      margin-top: 3.5em;
+    }
+  }
 }
