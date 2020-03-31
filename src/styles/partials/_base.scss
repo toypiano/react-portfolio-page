@@ -37,3 +37,7 @@ h1 {
 h2 {
   @include sans-serif($fz: 2rem);
 }
+
+figure {
+  margin: 0; // remove default margin for figure element
+}

@@ -17,3 +17,19 @@ Portfolio page built with react, CSS grid, and sass.
 | content size    | can change entire track | stretches or wrap to fit the box |
 
 - If you are setting a percentage width on a flex item or disabling its flexibility, a grid is likely to be a better choice.
+- e.g.
+  ```scss
+  .portfolio-item {
+    flex: 1 1 50%; // basis: 50% of container => 2 cols
+    &.featured {
+      order: 0; // come first
+      flex-basis: 100%; // take whole row
+    }
+  ...
+  ```
+
+## Memo
+
+- Nesting (with/without Sass) adds to the specificity of the rule and make it difficult to
+  overwrite it later.
+- If you have added class to the element that you're styling, avoid nesting it inside other elements unless you have specific reasons to do so.

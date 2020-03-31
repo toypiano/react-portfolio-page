@@ -1,0 +1,129 @@
+.portfolio {
+  text-align: center;
+  background: $light-gray;
+  padding: 5em 0;
+}
+
+.portfolio-items {
+  display: flex;
+  flex-wrap: wrap;
+  // contain at most 2 item in a row 320 * 2 + item margins
+  /* 
+  limits max-width of portfolio section so that it only grows as wide as 'about-me' section 
+  Without it, items will line up in one row making 'about-me' section out of place.
+  */
+  @include container($ma: 75em); // 14px * 75 = 1050px ma
+}
+
+.portfolio-item {
+  // flex: 1 1 20rem; // basis: 320px
+  flex: 1 1 50%; // basis: 50% of container => 2 cols
+  &.featured {
+    order: 0; // come first
+    flex-basis: 100%; // take whole row
+  }
+  overflow: hidden; // precaution
+  position: relative;
+  background: pink; // -> to check if img takes up whole container
+
+  img {
+    display: block; // remove default space at the bottom of inline element
+    width: 100%;
+  }
+  &:hover figcaption,
+  &:focus figcaption {
+    top: 0;
+  }
+
+  // overlays on top of image when hovered
+  figcaption {
+    position: absolute;
+    top: 100%;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    color: $white;
+    background: rgba($accent, 0.7);
+    display: flex;
+    flex-direction: column;
+    align-items: start; // text-align: center; doesn't apply to button text
+    text-align: left;
+    padding: 2em;
+    transition: top 250ms ease-in-out;
+  }
+}
+.portfolio-title {
+  color: $white;
+  // font-size: 5rem;
+  font-size: 10vw;
+  margin-bottom: auto;
+}
+
+.portfolio-desc {
+  display: none;
+}
+
+.featured {
+  .portfolio-title {
+    font-size: 20vw;
+  }
+
+  .portfolio-desc {
+    display: block;
+  }
+}
+
+.portfolio-link {
+  // because we replaced link with button
+  background: transparent;
+  border: none;
+  font-size: 1.1rem;
+  font-weight: $fw-b;
+  color: $white;
+  padding: 0; // remove button default padding
+  border-bottom: 3px solid $white;
+  &::after {
+    content: url("../../images/arrow-white.svg");
+    /* when inline-block, need to give width & height to show the image 
+        because it has initially 0 dimension with empty content*/
+    display: inline-block;
+    height: 0.8em;
+    width: 0.8em;
+    margin-left: 0.5em;
+  }
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+.portfolio-modal {
+  display: none;
+}
+
+@supports (display: grid) {
+  .portfolio-items {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .portfolio-item.featured {
+    grid-column: 1 / span 2;
+    grid-row: 1 / span 2;
+  }
+
+  .portfolio-title {
+    font-size: 10vw;
+  }
+  .portfolio-desc {
+    display: none;
+  }
+
+  .featured {
+    .portfolio-title {
+      font-size: 20vw;
+    }
+
+    .portfolio-desc {
+      display: block;
+    }
+  }
+}
