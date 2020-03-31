@@ -1,17 +1,13 @@
-import React, { useState } from "react";
+import React from "react";
 import { ReactComponent as MenuIcon } from "../images/hamburger.svg";
 import { ReactComponent as CloseIcon } from "../images/closeicon.svg";
 
-export default function Navigation() {
-  const [isOpen, setIsOpen] = useState(false);
-  function handleTogglerClick() {
-    setIsOpen(s => !s);
-  }
+export default function Navigation({ clicked, isOpen }) {
   return (
     <nav>
       <button
         className={isOpen ? "nav-toggler is-open" : "nav-toggler"}
-        onClick={handleTogglerClick}
+        onClick={clicked}
       >
         <MenuIcon className="menu-icon" />
         <CloseIcon className="close-icon" />
