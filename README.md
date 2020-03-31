@@ -28,6 +28,14 @@ Portfolio page built with react, CSS grid, and sass.
   ...
   ```
 
+## Implicit Grid Tracks
+
+[MDN: grid-auto-rows](https://developer.mozilla.org/en-US/docs/Web/CSS/grid-auto-rows)
+
+> If a grid item is positioned into a row that is not explicitly sized by grid-template-rows, implicit grid tracks are created to hold it. This can happen either by explicitly positioning into a row that is out of range, or by the auto-placement algorithm creating additional rows.
+
+- You can explicitly set only grid-template-columns in the container and set grid-row in each grid-item as you go.
+
 ## Memo
 
 - Nesting (with/without Sass) adds to the specificity of the rule and make it difficult to

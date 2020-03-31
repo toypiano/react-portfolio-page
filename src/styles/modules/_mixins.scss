@@ -12,3 +12,10 @@
     clear: both;
   }
 }
+
+// mq at 700px
+@mixin mq($min-width: 50em) {
+  @media (min-width: $min-width) {
+    @content;
+  }
+}

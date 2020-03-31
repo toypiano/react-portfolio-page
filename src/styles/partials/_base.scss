@@ -10,6 +10,10 @@ body {
   line-height: 1.6;
   background: $white;
   font-size: 0.875rem; // 16* 0.875 = 14px;
+
+  @include mq {
+    font-size: 1.125rem; // make it bigger on mq  > 700px
+  }
 }
 
 code {
@@ -32,10 +36,16 @@ h1 {
   color: $accent;
   line-height: 1; // smaller
   font-size: 3.125rem; // 50px / 16px = 3.125
+  @include mq {
+    font-size: 4.25rem;
+  }
 }
 
 h2 {
   @include sans-serif($fz: 2rem);
+  @include mq {
+    font-size: 3.125rem;
+  }
 }
 
 figure {
