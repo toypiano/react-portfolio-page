@@ -24,7 +24,7 @@
   }
   overflow: hidden; // precaution
   position: relative;
-  background: pink; // -> to check if img takes up whole container
+  // background: pink; // -> to check if img takes up whole container
 
   img {
     display: block; // remove default space at the bottom of inline element
@@ -104,6 +104,16 @@
   .portfolio-items {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
+
+    @include mq {
+      grid-template-columns: repeat(4, 1fr);
+      .portfolio-title {
+        font-size: min(max(5vw, 2.5rem), 4rem);
+      }
+      .portfolio-item.featured .portfolio-title {
+        font-size: min(max(10vw, 5rem), 10rem);
+      }
+    }
   }
   .portfolio-item.featured {
     grid-column: 1 / span 2;

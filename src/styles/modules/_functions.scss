@@ -1,0 +1,8 @@
+// Define CSS max() and min() functions.
+@function max($numbers...) {
+  @return m#{a}x(#{$numbers}); // will be compiled into css max(...args)
+}
+
+@function min($numbers...) {
+  @return m#{i}n(#{$numbers});
+}
