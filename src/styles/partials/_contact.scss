@@ -10,6 +10,33 @@
 form {
   display: flex;
   flex-direction: column;
+
+  @supports (display: grid) {
+    // arrange input controls differently on wider screen
+    @include mq {
+      display: grid;
+      grid-template-areas:
+        "name     email"
+        "message message"
+        "   .    btn";
+      .name {
+        grid-area: name;
+      }
+      .email {
+        grid-area: email;
+      }
+      .message {
+        grid-area: message;
+        textarea {
+          height: 10em;
+        }
+      }
+      .btn {
+        grid-area: btn;
+      }
+      grid-column-gap: 1em;
+    }
+  }
 }
 
 label {
@@ -26,6 +53,7 @@ textarea {
   border-radius: 2px;
   background: lighten($light-gray, 7%);
   font-size: 1.2rem;
+  resize: vertical; // prevent horizontal resize
 }
 
 .btn {
