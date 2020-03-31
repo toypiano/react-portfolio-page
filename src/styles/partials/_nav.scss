@@ -1,3 +1,79 @@
+.nav-toggler {
+  position: absolute;
+  width: 50px;
+  height: 30px;
+  top: 1.5em;
+  left: 1.5em;
+  border: 0;
+  background: transparent;
+  z-index: 50;
+  .close-icon {
+    display: none;
+  }
+  &:hover,
+  &:focus {
+    cursor: pointer;
+    outline: 3px solid rgba($gray, 0.5);
+  }
+
+  &.is-open {
+    .menu-icon {
+      display: none;
+    }
+    .close-icon {
+      display: block;
+    }
+  }
+  &:active {
+    outline: none;
+  }
+}
+
+.menu-icon,
+.close-icon {
+  background: transparent;
+  fill: $dark-blue; // removed <style> and class attr from svg element for css to work
+}
+
 nav {
-  display: none;
+  position: absolute;
+  ul {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 15%;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    justify-content: space-around;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    background: $accent;
+    z-index: 10;
+    li {
+      text-align: center;
+      border-bottom: 1px solid $dark-blue;
+      &:hover {
+        background: rgba($dark-blue, 0.5);
+      }
+
+      a {
+        @include sans-serif($fz: 4rem, $c: $dark-blue);
+        text-decoration: none;
+        /* give padding-top & padding bottom of each link 1/8 of 100vh  */
+        line-height: 0;
+        padding: calc(100vh / 8) 0;
+        display: block;
+      }
+    }
+
+    transform: translateX(-100%);
+    transition: transform 250ms ease-out;
+
+    &.is-open {
+      transform: translateX(0);
+    }
+  }
 }
