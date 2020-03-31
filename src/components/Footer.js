@@ -8,9 +8,9 @@ export default function Footer() {
     <footer>
       <p>Follow me on social media</p>
       <div className="social-icons">
-        <Twitter />
-        <Instagram />
-        <Github />
+        <Twitter className="social-icon" />
+        <Instagram className="social-icon" />
+        <Github className="social-icon" />
       </div>
       <p className="copyright">
         Copyright {"\u{00A9}"}2020 Joe Portfolio {"\u{1F9D4}"}
