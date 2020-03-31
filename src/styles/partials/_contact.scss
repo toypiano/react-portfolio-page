@@ -1,0 +1,40 @@
+.contact {
+  @include container;
+  padding: 5em 0;
+
+  h1 {
+    text-align: center;
+  }
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+label {
+  margin-top: 1em;
+  color: $dark-gray;
+}
+
+input,
+textarea {
+  display: block;
+  width: 100%;
+  padding: 0.75em;
+  border: 1px solid $light-gray;
+  border-radius: 2px;
+  background: lighten($light-gray, 7%);
+  font-size: 1.2rem;
+}
+
+.btn {
+  margin-top: 1em;
+  width: auto; // auto: content's width
+  margin-left: auto; // By default, flex-item stretches to take up the whole cross-axis space
+  background: $accent;
+  @include sans-serif($fz: 2rem, $c: $white);
+  padding: 0.5em 1.5em;
+  border: none;
+  display: inline-block;
+}
