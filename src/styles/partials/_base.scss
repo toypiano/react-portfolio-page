@@ -10,6 +10,7 @@ body {
   line-height: 1.6;
   background: $white;
   font-size: 0.875rem; // 16* 0.875 = 14px;
+  overflow-x: hidden; // disable x-scroll;
 
   @include mq {
     font-size: 1.125rem; // make it bigger on mq  > 700px

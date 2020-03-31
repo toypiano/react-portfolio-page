@@ -4,9 +4,10 @@
   height: 100%;
   background: black;
   opacity: 0;
-  z-index: 5;
+  z-index: -1;
   transition: opacity 200ms ease;
   &.is-open {
     opacity: 0.5;
+    z-index: 1;
   }
 }
