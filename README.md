@@ -65,3 +65,7 @@ body {
 
 - But Maybe keep it because most websites do have bouncing effect.
 - Use it when you need it.
+
+## TODO
+
+- Prevent hover effect after closing the modal. Maybe add local state to Modal component?
