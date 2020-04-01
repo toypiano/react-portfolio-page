@@ -41,3 +41,13 @@ Portfolio page built with react, CSS grid, and sass.
 - Nesting (with/without Sass) adds to the specificity of the rule and make it difficult to
   overwrite it later.
 - If you have added class to the element that you're styling, avoid nesting it inside other elements unless you have specific reasons to do so.
+
+## Styling with event in React
+
+- If you are storing style object with `useRef`, you are probably doing it in old 'jQuery' way.
+- If you need to add listener for `keydown` event to `window`, you do it inside the `useEffect`.
+  - Make sure that you return a cleanup function with `removeEventListener`.
+- For almost all other cases, you don't need `addEventListener`. Instead, add event handler prop (e.g. `onClick`, `onAnimationEnd`) to the component and assign a handler function.
+- That handler function usually sets local UI state (e.g. `isModalOpen`, `idLoading`)
+- Then you can add class or inline style object that changes based on the local UI state to the component that you want to apply dynamic styling to.
+  - You can implement the above with `styled-component` more cleanly. (But may be massier inside dev tools)
