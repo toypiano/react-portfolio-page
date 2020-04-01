@@ -96,10 +96,6 @@
   }
 }
 
-.portfolio-modal {
-  display: none;
-}
-
 @supports (display: grid) {
   .portfolio-items {
     display: grid;
@@ -138,5 +134,119 @@
   }
 }
 
+@keyframes modalIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes modalOut {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
 .portfolio-modal {
+  position: fixed;
+  z-index: -100;
+  display: none;
+  &.is-open {
+    display: block;
+    z-index: 100;
+    animation: modalIn 500ms forwards;
+  }
+  max-width: 900px;
+  margin: 0 auto;
+  top: 2em;
+  bottom: 2em;
+  left: 2em;
+  right: 2em;
+  background: $white;
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+
+.modal-close {
+  position: fixed;
+  width: 3em;
+  height: 3em;
+  left: 1em;
+  top: 1em;
+  background: $white;
+  border: none;
+  border-radius: 50%;
+  box-shadow: 0 0 5px rgba(black, 0.5);
+}
+
+.portfolio-header {
+  text-align-last: left;
+  padding: 5em 0;
+  margin-bottom: 2em;
+  // backgroundImage is added through inline-style inside PortfolioModal component
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+.portfolio-title-box {
+  background: rgba($accent, 0.75);
+  padding: 3em;
+  color: $white;
+  width: 70%;
+}
+
+.portfolio-title {
+  font-size: min(max(6vw, 2.5rem), 4rem);
+  display: inline-block; // make bottom line as long as the text
+  &::after {
+    content: "";
+    display: block;
+    height: 1px;
+    margin: 0.5em 0;
+    background: white;
+    width: 100%;
+  }
+}
+
+.portfolio-subtitle {
+  font-size: min(max(5vw, 1rem), 1.2rem);
+  margin: 0;
+}
+
+.portfolio-content {
+  text-align-last: left;
+  width: 85%;
+  margin: 0 auto;
+  padding-bottom: 3em;
+}
+.portfolio-full-width {
+  width: 100vw; // 100% + margin-left + margin-right
+  max-width: initial;
+  // 50vw = 50% + margin-left
+  margin: 2em calc(50% - 50vw);
+  height: 30vh; // squashes image
+  object-fit: cover; // background-size for image
+}
+
+@include mq {
+  .portfolio-modal {
+    top: 0;
+    bottom: 0;
+  }
+  .portfolio-pull-left {
+    width: 65%;
+    float: left;
+    margin-right: 2em;
+  }
+  .portfolio-pull-right {
+    width: 45%;
+    float: right;
+
+    margin-left: 2em;
+  }
 }
