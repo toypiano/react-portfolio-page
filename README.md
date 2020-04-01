@@ -51,3 +51,17 @@ Portfolio page built with react, CSS grid, and sass.
 - That handler function usually sets local UI state (e.g. `isModalOpen`, `idLoading`)
 - Then you can add class or inline style object that changes based on the local UI state to the component that you want to apply dynamic styling to.
   - You can implement the above with `styled-component` more cleanly. (But may be massier inside dev tools)
+
+## Remove bouncing edges on top of the page
+
+[MDN: overscroll-behavior](https://developer.mozilla.org/en-US/docs/Web/CSS/overscroll-behavior)
+
+```css
+html,
+body {
+  overscroll-behavior: none;
+}
+```
+
+- But Maybe keep it because most websites do have bouncing effect.
+- Use it when you need it.
