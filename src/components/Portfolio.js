@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback, useRef } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import { lorem } from "faker";
 import { ReactComponent as CloseIcon } from "../images/closeicon.svg";
 
